@@ -1,13 +1,16 @@
 var displayDiv = document.querySelector("#display");
 var arr = [];
 var result = [];
+var checkSign = 0;
 function press(num) {
-
-    if(result.length != 0){
-        if(isNaN(result[result.length-1])){
-            displayDiv.innerText = '0';
-        };
-    };
+    console.log("checksign : " + checkSign);
+    if(checkSign > 0){
+         arr = [];
+         checkSign = 0;
+         console.log("inside if");
+    } 
+    
+    
         
     arr.push(num);
     displayDiv.innerText = arr.join("");
@@ -22,18 +25,22 @@ function setOP(sign) {
         case '/':          
             result.push(sign);
             console.log(result);
+            checkSign = 1;
             break;
         case '*':
             result.push(sign);
             console.log(result);
+            checkSign = 1;
             break;
         case '-':
             result.push(sign);
             console.log(result);
+            checkSign = 1;
             break;
         case '+':
             result.push(sign);
             console.log(result);
+            checkSign = 1;
             break;   
     }
   
@@ -42,7 +49,9 @@ function setOP(sign) {
 function calculate() {
     try{
         displayDiv.innerText = eval(result.join("")).toString();
+        console.log(result);
     } catch {
+        displayDiv.innerText = "Error!";
         console.log("there was an error in the calculation");
     }
     
