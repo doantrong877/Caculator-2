@@ -49,6 +49,9 @@ function setOP(sign) {
 function calculate() {
     try{
         displayDiv.innerText = eval(result.join("")).toString();
+        var temp = displayDiv.innerText;
+        result = [];
+        result.push(temp);
         console.log(result);
     } catch {
         displayDiv.innerText = "Error!";
@@ -56,7 +59,7 @@ function calculate() {
     }
     
     arr = [];
-    result = [];
+    
 }
 
 function clr() {
